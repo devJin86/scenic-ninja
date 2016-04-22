@@ -90,6 +90,7 @@ module.exports.deleteOne = function(req, res) {
 module.exports.searchGoogle = function(req, res) {
 
   var searchString = urlParser.parse(req.url).search; //include leading question mark
+  console.log(searchString);
   var regex1 = new RegExp(/(good|great|awesome|fantastic|terrific|nice|cool|wonderful|dope|beautiful|amazing|gorgeous|breathtaking|scenic|panoramic|stunning) view/);
   var regex2 = new RegExp(/view (is|was) (good|great|awesome|fantastic|terrific|nice|cool|wonderful|dope|beautiful|amazing|gorgeous|breathtaking|scenic|panoramic|stunning)/);
 
@@ -133,7 +134,8 @@ module.exports.searchGoogle = function(req, res) {
                           phone: placeDetails.formatted_phone_number,
                           rating: placeDetails.rating,
                           price: placeDetails.price_level,
-                          location: placeDetails.geometry.location
+                          location: placeDetails.geometry.location,
+                          userLongLat: searchString
                         });
                         break;
                       }

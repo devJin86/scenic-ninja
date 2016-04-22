@@ -33,13 +33,33 @@ class PlaceEntry extends Component {
       marginLeft: '-25%',
       border: '10px solid #ffffff' 
     };
+    // var cityState = function() {
+    //   var foo = props.place.address.split(', ');
+    //   console.log(foo, '!!!!!!!!!!!!!!!!!!!');
+    //   return foo;
+    // }
+    var getCurrentTemp = () => {
+      return {
+        onSaveClick: (cityState) => {
+          $.ajax({
+            url: 'api.openweathermap.org/data/2.5/weather?q=' + cityState + '&appid=' + {API KEY},
+            method: 'GET',
+            data: {}
+          });
+          dispatch(actions.savePlace(place));
+        }
+      };
+    };
 
     return (
+      
       <div>
         <div className='place-entry animated fadeInUp'>
+        {console.log(this.props.place.address)}
           <div className='place-info' >
               <h4>{ this.props.place.name }</h4>
               <p>{ this.props.place.address }</p>
+              <h1>{cityState}</h1>
               <div>
                 <a className='place-entry-link' href={'//www.images.google.com/search?q=' + this.props.place.name + ' ' + this.props.place.address + '&tbm=isch'}
                 target='_blank'>View Images</a>

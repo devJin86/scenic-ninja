@@ -14,8 +14,11 @@ class PlaceContainer extends Component {
   render() {
     return (
       <div>
-        <div className='col-2-12'></div>
+        <div className='col-2-12'>
+          <h1> </h1>
+        </div>
         <div id='loading-container' className='col-6-12'>
+        {console.log(this.props.places)}
           { this.props.places.map((place) => (
             <div>
               <PlaceEntry onSaveClick={this.props.onSaveClick} place={ place }></PlaceEntry>
