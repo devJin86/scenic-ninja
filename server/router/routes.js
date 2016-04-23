@@ -17,6 +17,8 @@ module.exports = function(app, express) {
 
   app.post('/api/users', userController.saveOne);
 
+  // app.get('/api/weather', placeController.getWeather);
+
   app.get('/', function(req, res) {
     res.sendFile(path.resolve(__dirname + '/../../client/login.html'));
   });

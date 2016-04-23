@@ -8,7 +8,7 @@ import searchGooglePlaces from '../utils/searchGooglePlaces.js';
 import actions from '../actions/index.js';
 
 class Header extends Component {
-
+ 
   handleClick(e) {
     e.preventDefault();
     this.props.onFindClick();

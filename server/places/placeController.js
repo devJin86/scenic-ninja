@@ -83,6 +83,11 @@ module.exports.deleteOne = function(req, res) {
   // });
 };
 
+// // get weather
+// module.exports.getWeather = function(req, res) {
+//   var url = 
+// }
+
 
 //Make a get call to Google Places radarsearch endpoint, get back 200 results;
 //Make a get call to Google Places details endpoint for each of the 200 results, match their reviews against regexes, send filtered and simplified results back to client;
@@ -121,10 +126,12 @@ module.exports.searchGoogle = function(req, res) {
                 }).on('end', function() { //layer 4 on 'end'
                   body = JSON.parse(Buffer.concat(body).toString());
                   var placeDetails = body.result;
+
                   var reviews = placeDetails.reviews;
                   if (reviews) {
                     for (var j = 0; j < reviews.length; j++) {
                       var review = reviews[j];
+                      // console.log(review);
                       if (review.text.match(regex1) || review.text.match(regex2)) { //TODO: improve regex matching
                         filteredBody.places.push({
                           name: placeDetails.name,
